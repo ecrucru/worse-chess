@@ -26,6 +26,7 @@
 ###
 
 opt_engine = 'C:\\path\\engine.exe'
+opt_arguments = []									# Example: ["-load", "c:\\path\\script.js"]
 
 
 ###
@@ -45,9 +46,9 @@ evals = []
 # Interface between Adapter and Engine
 ###
 
-if not fs.existsSync opt_engine
+if ('\\' in opt_engine or '//' in opt_engine) and not fs.existsSync opt_engine
 	throw 'Error : in the script, please define the filename of the engine.'
-subp = spawn opt_engine
+subp = spawn opt_engine, opt_arguments
 subp.stdout.on('data',
 	(data) ->
 		# Simplifies the data

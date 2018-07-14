@@ -12,13 +12,16 @@ Technically, it works with any classic/variant UCI engine that supports the opti
 
 ## Install
 
-- Install NodeJS
+- Install NodeJS.org
 - If you compile this project yourself :
 	- Run once `npm install -g coffeescript`
-	- With Notepad, edit `opt_engine` in the file `worse-chess.coffee` to declare the full path of the engine to be used
+	- Edit `worse-chess.coffee` with Notepad to change :
+		- `opt_engine` : the existing engine to be used with its full path, or a global command (like `node`, `java`...)
+		- `opt_arguments` : an array of string values separated with a comma to be passed to the command line, containing the full name of the script when you use a global command for example
+		- Please note that every single character `\` should be written as `\\`.
 	- Run `coffee -b -c worse-chess.coffee`
 - Else
-	- With Notepad, edit `opt_engine` in the officially released file `worse-chess.js` to declare the full path of the engine to be used
+	- With Notepad, edit `opt_engine` and `opt_arguments` in the officially released file `worse-chess.js` by following the above rules
 - Use the command `node worse-chess.js` in your favorite chess application
 
 Remark : most chess GUI will not accept that you choose the real engine from the UCI options of Worse Chess. Indeed the options are loaded the first time you install the script. That's why you should edit the file first as explained above.
